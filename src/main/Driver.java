@@ -2,14 +2,15 @@ package main;
 
 import threadTest.MyThreadWithRunnable;
 import threadTest.MyThreadWithThread;
+import threadTest.TimeTest;
 
 import java.util.Scanner;
 
 public class Driver {
     public static void main(String[] args) {
         //test1();
-        test2();
-
+        //test2();
+        test3();
     }
 
     public static void test1() {
@@ -40,5 +41,16 @@ public class Driver {
         //Şimdi Thread sınıfının metotlarına erişebiliriz.
         thread.start();
         System.out.println("My main is ending.");
+    }
+
+    public static void test3() {
+        System.out.println("Main method starting.");
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Saniyeyi giriniz: ");
+        int i = scanner.nextInt();
+        TimeTest timeTest = new TimeTest(i);
+        Thread thread = new Thread(timeTest);
+        thread.start();
+        System.out.println("Main method bitiyor.");
     }
 }
