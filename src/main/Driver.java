@@ -1,5 +1,6 @@
 package main;
 
+import threadTest.LambdaExpressions;
 import threadTest.MyThreadWithRunnable;
 import threadTest.MyThreadWithThread;
 import threadTest.TimeTest;
@@ -10,7 +11,8 @@ public class Driver {
     public static void main(String[] args) {
         //test1();
         //test2();
-        test3();
+        //test3();
+        test4();
     }
 
     public static void test1() {
@@ -50,7 +52,14 @@ public class Driver {
         int i = scanner.nextInt();
         TimeTest timeTest = new TimeTest(i);
         Thread thread = new Thread(timeTest);
+        Thread thread1 = new Thread(() -> System.out.println("hello"));
         thread.start();
+        thread1.start();
         System.out.println("Main method bitiyor.");
+    }
+    public static void test4 (){
+        //lambda expressions kullanımı. Sadece fonksiyonel interface'lerde geçerlidir.
+        Thread thread = new Thread(() -> System.out.println("Hello World"));
+        thread.start();
     }
 }
