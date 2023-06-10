@@ -6,6 +6,6 @@ public class CallableThread implements Callable<Integer> {
 
     @Override
     public Integer call() {
-        return null;
+        return 0;
     }
 }
